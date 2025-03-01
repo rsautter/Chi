@@ -36,7 +36,7 @@ def boxSymmetry(alpha,falpha):
 	mx,mn = np.argmax(alpha),np.argmin(alpha)
 	return np.abs((np.max(alpha)-np.min(alpha))*(falpha[mx]-falpha[mn]))
 	
-def logisticHalfAvg(x,k=7):
+def polyNormalization(x):
 	return x/(1+x)
 
 def singularitySpectrumMetrics(alpha,falpha):
@@ -117,7 +117,7 @@ def normalize(d):
 	return data
 
 #@jit(forceobj=True,parallel=True)
-def autoMFDFA(timeSeries,qs=np.arange(5,15,2), scThresh=1e-2, nqs = 10, nsamples=40, nscales=20,magnify=5):
+def autoMFDFA(timeSeries,qs=np.arange(5,15,2), scThresh=1e-2, nqs = 10, nsamples=40, nscales=20):
 	'''
 	========================================================================
 	Complementary method to measure multifractal spectrum.
@@ -137,12 +137,10 @@ def autoMFDFA(timeSeries,qs=np.arange(5,15,2), scThresh=1e-2, nqs = 10, nsamples
 	nqs - number of hurst exponents measured
 	nsamples - number of singularity spectrum samples per hurst exponent set (q)
 	nscales - number of random scales
-	magnify - logistic function constant - greater values increases the differences between extremes
-
 	=========================================================================
 	Output:
 	alphas, falphas - set of multifractal spectrum
-	LDA -  Logistic of the average delta alpha
+	Average delta alpha
 	=========================================================================
 	Wrote by: Rubens A. Sautter (02/2022)
 	'''
@@ -183,7 +181,7 @@ def autoMFDFA(timeSeries,qs=np.arange(5,15,2), scThresh=1e-2, nqs = 10, nsamples
 	#compute ldas:
 	ldas = []
 	for f in range(len(alphas)):
-		ldas.append(logisticHalfAvg(getDeltaAlpha(alphas[f],falphas[f]),k=magnify))
+		ldas.append(polyNormalization(getDeltaAlpha(alphas[f],falphas[f])))
 
 	if len(alphas)>2:
 		return alphas, falphas, np.average(ldas)

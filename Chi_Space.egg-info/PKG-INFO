@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.2
 Name: Chi-Space
 Version: 0.2
 Summary: Chi Space Package (Logistic Delta alpha x Gaussian Quartile-Quartile distance)
@@ -6,3 +6,8 @@ Home-page: https://github.com/rsautter/Chi-Space
 Author: Rubens Andreas Sautter
 Author-email: rubens.sautter@gmail.com
 Keywords: Multifractal QQPlot Time-series
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: summary
