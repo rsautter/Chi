@@ -1,0 +1,3 @@
+MFDFA>=0.4
+matplotlib
+scipy

@@ -1,0 +1,4 @@
+[build-system]
+name="Chi-Space"
+version = "0.2"
+requires = ["setuptools","wheel","scipy","numpy","MFDFA","seaborn"]
