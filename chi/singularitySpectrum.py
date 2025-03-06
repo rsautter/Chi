@@ -11,14 +11,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-
-def quadratic(x,a,b,c):
-    return a*(x**2)+b*(x)+c
-
-def getPolynomial(alpha,falpha):
-	coeffs = curve_fit(quadratic,alpha,falpha)[0]
-	return coeffs
-
 def getDeltaAlpha(alpha,falpha):
 	a,b,c = getPolynomial(alpha,falpha)
 	if a == 0:
@@ -26,9 +18,8 @@ def getDeltaAlpha(alpha,falpha):
 	if b*b<4*a*c:
 		return 0
 	# Bahskara to find the roots of the fitted polynomial
-	return np.pow(np.sqrt(b*b-4*a*c)/a,2) 
+	return np.power(np.sqrt(b*b-4*a*c)/a,2) 
 	
-
 #def deltaAlpha(alpha):
 #	return np.average(np.max(alpha,axis=1)-np.min(alpha,axis=1))
 
