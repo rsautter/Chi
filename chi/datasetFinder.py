@@ -1,10 +1,10 @@
 import pandas as pd
 	
 def get_SolarWind():
-	return pd.read_csv(r'https://raw.githubusercontent.com/rsautter/Chi/main/data/Swind4096norm.csv',header=None).values.T[0]
+	return pd.read_csv(r'https://raw.githubusercontent.com/rsautter/Chi/main/data/SwindNorm.csv',header=None).values.T[0]
 
 def get_SurrogateSolarWind():
-	return pd.read_csv(r'https://raw.githubusercontent.com/rsautter/Chi/main/data/GaussSW4096.csv',header=None).values.T[0]
+	return pd.read_csv(r'https://raw.githubusercontent.com/rsautter/Chi/main/data/GaussSW.csv',header=None).values.T[0]
 	
 def get_SYMH():
 	'''
@@ -12,7 +12,7 @@ def get_SYMH():
 	https://www.researchgate.net/publication/342285814_Disentangling_nonlinear_geomagnetic_variability_during_magnetic_storms_and_quiescence_by_timescale_dependent_recurrence_properties
 	The data source available at: https://omniweb.gsfc.nasa.gov/form/omni_min.html
 	'''
-	return pd.read_csv(r"https://raw.githubusercontent.com/rsautter/Chi/main/data/SYM.H.csv")
+	return pd.read_csv(r"https://raw.githubusercontent.com/rsautter/Chi/main/data/SYMH.csv")
 
 def get_endoDataResults():
 	return pd.read_csv(r'https://raw.githubusercontent.com/rsautter/Chi/main/results/zEndo.csv')
