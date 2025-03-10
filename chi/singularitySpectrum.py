@@ -11,6 +11,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+def quadratic(x,a,b,c):
+    return a*(x**2)+b*(x)+c
+
 def getPolynomial(alpha,falpha):
 	coeffs = curve_fit(quadratic,alpha,falpha)[0]
 	return coeffs
