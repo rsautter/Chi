@@ -11,6 +11,10 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+def getPolynomial(alpha,falpha):
+	coeffs = curve_fit(quadratic,alpha,falpha)[0]
+	return coeffs
+
 def getDeltaAlpha(alpha,falpha):
 	a,b,c = getPolynomial(alpha,falpha)
 	if a == 0:
