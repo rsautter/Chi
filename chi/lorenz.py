@@ -21,7 +21,7 @@ def lorenzSynch(mu=5,tmax=500,n=20000):
 	sigma1, beta1, rho1 = 10, 8/3, 28
 	sigma2, beta2, rho2 = 10, 8/3, 29
 
-	u10, v10, w10, u20, v20, w20  = 0.1,0.1,0.1, 20,20,2
+	u10, v10, w10, u20, v20, w20  = 0.1+0.01*np.random.rand(),0.1+0.01*np.random.rand(),0.1+0.01*np.random.rand(), 20,20,2
 	def lorenz(t, X, mu):
 		"""The Lorenz equations."""
 		u1, v1, w1, u2, v2, w2 = X
